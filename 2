@@ -1,0 +1,15 @@
+public class DescuentoCalculator {
+    private double precioOriginal;
+    private double porcentajeDescuento;
+
+    public DescuentoCalculator(double precioOriginal, double porcentajeDescuento) {
+        this.precioOriginal = precioOriginal;
+        this.porcentajeDescuento = porcentajeDescuento;
+    }
+
+    public double calcularPrecioConDescuento() {
+        double descuento = precioOriginal * porcentajeDescuento / 100;
+        double precioConDescuento = precioOriginal - descuento;
+        return precioConDescuento;
+    }
+}
