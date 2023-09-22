@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class ContadorVocales {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingresa una cadena de texto: ");
+        String texto = scanner.nextLine();
+        
+        int cantidadVocales = contarVocales(texto);
+        System.out.println("La cantidad de vocales en la cadena es: " + cantidadVocales);
+    }
+    
+    public static int contarVocales(String texto) {
+        int contador = 0;
+        for (int i = 0; i < texto.length(); i++) {
+            char letra = texto.charAt(i);
+            if (esVocal(letra)) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+    
+    public static boolean esVocal(char letra) {
+        letra = Character.toLowerCase(letra);
+        return letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u';
+    }
+}
