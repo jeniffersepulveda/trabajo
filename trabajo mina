@@ -1,0 +1,150 @@
+import java.util.Scanner;
+
+public class EmployeeRegistration {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String name, id;
+        int menuOption, registeredHours = 0;
+        boolean hasMetHoursRequirement = false;
+
+        System.out.println("Welcome to the employee registration system");
+
+        do {
+            System.out.println("Select an option:");
+            System.out.println("1. Enter work hours");
+            System.out.println("2. Enter a new event");
+            menuOption = scanner.nextInt();
+
+            switch (menuOption) {
+                case 1:
+                    System.out.print("Enter the employee's name: ");
+                    name = scanner.next();
+                    System.out.print("Enter the employee's ID: ");
+                    id = scanner.next();
+                    System.out.print("Enter the number of hours worked: ");
+                    int workedHours = scanner.nextInt();
+                    System.out.print("Enter the start date and time (dd/mm/yyyy hh:mm:ss): ");
+                    String startDate = scanner.next();
+                    System.out.print("Enter the end date and time (dd/mm/yyyy hh:mm:ss): ");
+                    String endDate = scanner.next();
+
+                    registeredHours += workedHours;
+
+                    if (registeredHours >= 8) {
+                        hasMetHoursRequirement = true;
+                    } else {
+                        int hoursRemaining = 8 - registeredHours;
+                        System.out.println("You need " + hoursRemaining + " more hours to complete the work day");
+                    }
+
+                    break;
+
+                case 2:
+                    System.out.println("Select an option:");
+                    System.out.println("1. Leaves");
+                    System.out.println("2. Medical Certificates");
+                    System.out.println("3. Vacation");
+                    System.out.println("4. Permissions");
+                    int eventOption = scanner.nextInt();
+
+                    switch (eventOption) {
+                        case 1:
+                            System.out.println("Select an option:");
+                            System.out.println("1. Temporary Leave");
+                            System.out.println("2. Maternity Leave");
+                            System.out.println("3. Paternity Leave");
+                            int leaveOption = scanner.nextInt();
+
+                            switch (leaveOption) {
+                                case 1:
+                                    System.out.print("Enter the number of days for the temporary leave: ");
+                                    int temporaryLeaveDays = scanner.nextInt();
+
+                                    if (temporaryLeaveDays > 4) {
+                                        System.out.println("You should take vacation instead of a temporary leave");
+                                    } else {
+                                        // Register the temporary leave
+                                    }
+
+                                    break;
+
+                                case 2:
+                                    System.out.print("Enter the number of days for the maternity leave: ");
+                                    int maternityLeaveDays = scanner.nextInt();
+
+                                    if (maternityLeaveDays > 180) {
+                                        System.out.println("You cannot take more than 180 days of maternity leave");
+                                    } else {
+                                        // Register the maternity leave
+                                    }
+
+                                    break;
+
+                                case 3:
+                                    System.out.print("Enter the number of days for the paternity leave: ");
+                                    int paternityLeaveDays = scanner.nextInt();
+
+                                    if (paternityLeaveDays > 15) {
+                                        System.out.println("You cannot take more than 15 days of paternity leave");
+                                    } else {
+                                        // Register the paternity leave
+                                    }
+
+                                    break;
+
+                                default:
+                                    System.out.println("Invalid option");
+                            }
+
+                            break;
+
+                        case 2:
+                            System.out.print("Enter the number of days for the medical certificate: ");
+                            int medicalCertificateDays = scanner.nextInt();
+
+                            if (medicalCertificateDays > 20) {
+                                System.out.println("You cannot take more than 20 days of medical certificate");
+                            } else {
+                                // Register the medical certificate
+                            }
+
+                            break;
+
+                        case 3:
+                            System.out.print("Enter the number of days for the vacation: ");
+                            int vacationDays = scanner.nextInt();
+
+                            if (vacationDays > 15) {
+                                System.out.println("You cannot take more than 15 days of vacation");
+                            } else {
+                                // Register the vacation
+                            }
+
+                            break;
+
+                        case 4:
+                            System.out.print("Enter the number of hours for the permission: ");
+                            int permissionHours = scanner.nextInt();
+
+                            if (permissionHours > 5) {
+                                System.out.println("You should take a day of vacation or a temporary leave instead of a permission");
+                            } else {
+                                // Register the permission
+                            }
+
+                            break;
+
+                        default:
+                            System.out.println("Invalid option");
+                    }
+
+                    break;
+
+                default:
+                    System.out.println("Invalid option");
+            }
+        } while (!hasMetHoursRequirement);
+
+        System.out.println("Thank you for using the employee registration system!");
+    }
+}
